@@ -5,11 +5,7 @@ language: node_js
 node_js:
   - node
 
-install:
-  - npm ci
+cache: yarn
 
 script:
-  - npm test:coveralls
-
-notifications:
-  email: false
+  - yarn test
