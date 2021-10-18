@@ -7,7 +7,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "nodemon app.ts",
-    "test": "mocha --timeout 10000"
+    "test": "DEBUG=true nyc mocha ./test/**/*.test.ts --exit --inspect=0.0.0.0:9229 --timeout 10000"
   },
   "dependencies": {
     "@types/passport": "^1.0.7",
