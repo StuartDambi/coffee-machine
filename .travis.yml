@@ -9,7 +9,7 @@ install:
   - npm ci
 
 script:
-  - npm test:coveralls
+  - npm run test
 
 notifications:
   email: false
