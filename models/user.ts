@@ -2,14 +2,7 @@
 import { UUIDV4 } from "sequelize";
 import { Model } from "sequelize";
 
-interface UserAttributes {
-  id: string;
-  firstName: string;
-  lastName: string;
-  email: string;
-  role: string;
-  password: string;
-}
+import { UserAttributes } from "../utils/interfaces";
 
 module.exports = (sequelize: any, DataTypes: any) => {
   class User extends Model<UserAttributes> implements UserAttributes {
