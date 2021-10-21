@@ -25,3 +25,5 @@ const PORT = process.env.PORT || 5000;
 db.sequelize.sync().then(() => {
   app.listen(PORT, () => console.log(`listening to port ${PORT}`));
 });
+
+export default app;
