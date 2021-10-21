@@ -19,3 +19,11 @@ It is built with Nodejs, Sequelize and Postgres as a database.
 | -------------- | -------- | -------- | --------------------------- | ------------------------------------------- |
 | Register User  | **POST** | Users    | `/api/v1/users/auth/signup` | This registers a users to the system        |
 | Login User     | **POST** | Users    | `/api/v1/users/auth/login`  | This handles login of a users to the system |
+
+## Technologies Used
+
+- NodeJs / Express
+- Postresql Database with Sequelize as ORM
+- Redis
+- Swagger for API Documentation
+- Heroku For Hosting
