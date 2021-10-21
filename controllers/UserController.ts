@@ -58,11 +58,24 @@ class UserController {
           });
         } else {
           // create user session
-          return res.status(200).json({
-            status: res.statusCode,
-            message: `Welcome back ${userExists.firstName}`,
-            data: userExists,
-          });
+          const user = {
+            email: userExists.email,
+            firstName: userExists.firstName,
+            lastName: userExists.lastName,
+            role: userExists.role,
+          };
+          const token = jwt.sign(user, "simplesecretkey", { expiresIn: "1hr" });
+          if (!token) {
+            return res.status(500).json({
+              status: res.statusCode,
+              message: "oops, could not generate user token",
+            });
+          } else {
+            return res.status(200).json({
+              status: res.statusCode,
+              data: token,
+            });
+          }
         }
       }
     } catch (error) {
