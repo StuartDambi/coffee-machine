@@ -11,11 +11,11 @@ It is built with Nodejs, Sequelize and Postgres as a database.
 
 - Clone the application and run `yarn`
 - Run `cp .env.example .env` to create .env variables and fill them
-- Run `yarn dev` to create db migrations
+- Run `yarn dev` to create db migrations and run server
 
 ## API Documentation
 
-| End Point Name | Method   | Category | EndPoint                    | Description                          |
-| -------------- | -------- | -------- | --------------------------- | ------------------------------------ |
-| Register User  | **POST** | Users    | `/api/v1/users/auth/signup` | This registers a users to the system |
-| Login User     | **POST** | Users    | `/api/v1/users/auth/signup` | This registers a users to the system |
+| End Point Name | Method   | Category | EndPoint                    | Description                                 |
+| -------------- | -------- | -------- | --------------------------- | ------------------------------------------- |
+| Register User  | **POST** | Users    | `/api/v1/users/auth/signup` | This registers a users to the system        |
+| Login User     | **POST** | Users    | `/api/v1/users/auth/login`  | This handles login of a users to the system |
