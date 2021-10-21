@@ -1,12 +1,18 @@
 import express from "express";
 import cors from "cors";
+import session from "express-session";
+import cookieParser from "cookie-parser";
 
 import db from "./models";
 import userRoutes from "./routes/UserRoutes";
 
 const app = express();
 
-// app setup
+// TODO: store session secret in env variables
+app.use(
+  session({ secret: "simplesecret", saveUninitialized: true, resave: true })
+);
+app.use(cookieParser());
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

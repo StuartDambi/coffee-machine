@@ -18,7 +18,7 @@ class UserService {
   }
   /**
    * Finds users by email
-   * @param email string
+   * @param email User Email
    * @returns user
    */
   static async findUserByEmail(email: string) {
