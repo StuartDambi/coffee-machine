@@ -6,6 +6,7 @@
   "author": "Stuart Dambi",
   "license": "MIT",
   "scripts": {
+    "start": "ts-node app.ts",
     "dev": "nodemon app.ts",
     "test": "env TS_NODE_COMPILER_OPTIONS='{\"module\": \"commonjs\" }' DEBUG=true nyc mocha -r ts-node/register 'test/**/*.ts' --exit --inspect=0.0.0.0:9229 --timeout 10000",
     "coverage": "nyc report --reporter=text-lcov > coverage.lcov"
