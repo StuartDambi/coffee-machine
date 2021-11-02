@@ -2,7 +2,7 @@
   "name": "shariapi",
   "version": "1.0.0",
   "engines": {
-    "node": "15.x",
+    "node": "16.x",
     "yarn": "1.x"
   },
   "description": "Shari Groceries API ",
