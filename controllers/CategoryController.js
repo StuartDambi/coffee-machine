@@ -1,10 +1,7 @@
-import { Request, Response, NextFunction } from "express";
-// 0773290631 -- Buveera Kikuubo;
-
-import CategoryService from "../services/CategoryService";
+const CategoryService = require("../services/CategoryService");
 
 class CategoryController {
-  static async getCategories(req: Request, res: Response, next: NextFunction) {
+  static async getCategories(req, res, next) {
     try {
       const categories = await CategoryService.getCategories();
       if (categories.length <= 0) {
@@ -23,7 +20,7 @@ class CategoryController {
     }
   }
 
-  static async createCategory(req: Request, res: Response, next: NextFunction) {
+  static async createCategory(req, res, next) {
     try {
       const { name } = req.body;
 
@@ -46,4 +43,4 @@ class CategoryController {
   }
 }
 
-export default CategoryController;
+module.exports = CategoryController;

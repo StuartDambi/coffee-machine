@@ -1,8 +1,7 @@
-import { NextFunction, Request, Response } from "express";
-import ProductService from "../services/ProductService";
+const ProductService = require("../services/ProductService");
 
 class ProductController {
-  static async getProducts(req: Request, res: Response, next: NextFunction) {
+  static async getProducts(req, res, next) {
     try {
       const products = await ProductService.getAllProducts();
       if (products.length <= 0) {
@@ -21,11 +20,7 @@ class ProductController {
     }
   }
 
-  static async getSingleProduct(
-    req: Request,
-    res: Response,
-    next: NextFunction
-  ) {
+  static async getSingleProduct(req, res, next) {
     try {
       const product = await ProductService.getSingleProduct(
         parseInt(req.params.id)
@@ -46,7 +41,7 @@ class ProductController {
     }
   }
 
-  static async createProduct(req: Request, res: Response, next: NextFunction) {
+  static async createProduct(req, res, next) {
     try {
       const { name, price, description, image, stock, category } = req.body;
       const product = await ProductService.createProduct({
@@ -78,4 +73,4 @@ class ProductController {
   }
 }
 
-export default ProductController;
+module.exports = ProductController;

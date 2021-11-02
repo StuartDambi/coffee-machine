@@ -1,15 +1,12 @@
-"use strict";
-
-const { UUIDV4 } = require("sequelize");
-
+'use strict';
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     await queryInterface.createTable("Users", {
       id: {
         allowNull: false,
+        autoIncrement: true,
         primaryKey: true,
-        defaultValue: UUIDV4,
-        type: Sequelize.UUID,
+        type: Sequelize.INTEGER,
       },
       firstName: {
         type: Sequelize.STRING,
@@ -22,7 +19,6 @@ module.exports = {
       email: {
         type: Sequelize.STRING,
         allowNull: false,
-        unique: true,
       },
       password: {
         type: Sequelize.STRING,
@@ -43,6 +39,6 @@ module.exports = {
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable("Users");
-  },
+    await queryInterface.dropTable('Users');
+  }
 };
