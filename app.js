@@ -1,5 +1,6 @@
 const express = require("express");
 const cors = require("cors");
+const http = require("http");
 
 const db = require("./models");
 const userRoutes = require("./routes/UserRoutes");
@@ -16,14 +17,7 @@ app.use("/api/v1/products", productRoutes);
 app.use("/api/v1/categories", categoryRoutes);
 
 const PORT = process.env.PORT || 5000;
-
-db.sequelize
-  .sync()
-  .then(() => {
-    app.listen(PORT, () => console.log(`app listening to port ${PORT}`));
-  })
-  .catch((error) => {
-    console.error(error);
-  });
-
-module.exports = app;
+const server = http.createServer(app);
+server.listen(PORT, () => {
+  console.log(`App is running on http://localhost:${PORT}`);
+});
