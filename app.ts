@@ -6,6 +6,7 @@ import cookieParser from "cookie-parser";
 import db from "./models";
 import userRoutes from "./routes/UserRoutes";
 import productRoutes from "./routes/ProductRoutes";
+import categoryRoutes from "./routes/CategoryRoute";
 
 const app = express();
 
@@ -19,6 +20,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use("/api/v1/users", userRoutes);
 app.use("/api/v1/products", productRoutes);
+app.use("/api/v1/categories", categoryRoutes);
 
 const PORT = process.env.PORT || 5000;
 

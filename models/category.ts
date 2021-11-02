@@ -1,8 +1,8 @@
 "use strict";
 import { Model } from "sequelize";
 
-interface CategoryAttributes {
-  id: number;
+export interface CategoryAttributes {
+  id?: number;
   name: string;
 }
 
