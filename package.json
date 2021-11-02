@@ -28,9 +28,7 @@
     "pg-hstore": "^2.3.4",
     "sequelize": "^6.7.0",
     "supertest": "^6.1.6",
-    "ts-node": "^10.3.0"
-  },
-  "devDependencies": {
+    "ts-node": "^10.3.0",
     "@babel/eslint-parser": "^7.15.8",
     "@types/bcrypt": "^5.0.0",
     "@types/chai": "^4.2.22",
@@ -55,5 +53,8 @@
     "sequelize-cli": "^6.2.0",
     "standard": "^16.0.4",
     "typescript": "^4.4.3"
+  },
+  "devDependencies": {
+    
   }
 }
