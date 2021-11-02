@@ -1,9 +1,8 @@
-import { Request, Response, NextFunction } from "express";
-import jwt from "jsonwebtoken";
-import dotenv from "dotenv";
+const jwt = require("jsonwebtoken");
+const dotenv = require("dotenv");
 
-import UserService from "../services/UserService";
-import { comparePasswords, hashPassword } from "../utils/bcrypt";
+const UserService = require("../services/UserService");
+const { comparePasswords, hashPassword } = require("../utils/bcrypt");
 
 dotenv.config();
 class UserController {
@@ -14,7 +13,7 @@ class UserController {
    * @param next Next Function
    * @returns List of users
    */
-  static async getUsers(req: Request, res: Response, next: NextFunction) {
+  static async getUsers(req, res, next) {
     try {
       const users = await UserService.getUsers();
       if (users.length === 0) {
@@ -39,7 +38,7 @@ class UserController {
    * @param next -- Next function
    * @returns -- Logged in user or error message
    */
-  static async loginUser(req: Request, res: Response, next: NextFunction) {
+  static async loginUser(req, res, next) {
     try {
       const { email, password } = req.body;
       const userExists = await UserService.findUserByEmail(email);
@@ -83,7 +82,7 @@ class UserController {
     }
   }
 
-  static async createUser(req: Request, res: Response, next: NextFunction) {
+  static async createUser(req, res, next) {
     try {
       const { firstName, lastName, email, role, password } = req.body;
       const passHash = hashPassword(password);
@@ -132,4 +131,4 @@ class UserController {
   }
 }
 
-export default UserController;
+module.exports = UserController;

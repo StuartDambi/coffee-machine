@@ -1,5 +1,4 @@
-import data from "../models";
-import { CategoryAttributes } from "../models/category";
+const data = require("../models");
 
 const { Category } = data;
 
@@ -13,7 +12,7 @@ class CategoryService {
     }
   }
 
-  static async getCategoryById(id: number) {
+  static async getCategoryById(id) {
     try {
       const category = await Category.findOne({ id });
       return category;
@@ -22,7 +21,7 @@ class CategoryService {
     }
   }
 
-  static async getCategoryByName(name: string) {
+  static async getCategoryByName(name) {
     try {
       const category = await Category.findOne({ name });
       return category;
@@ -31,7 +30,7 @@ class CategoryService {
     }
   }
 
-  static async createCategory(category: CategoryAttributes) {
+  static async createCategory(category) {
     try {
       const categoryToBeCreated = await Category.create(category);
       return categoryToBeCreated;
@@ -40,7 +39,7 @@ class CategoryService {
     }
   }
 
-  static async updateCategory(id: number, category: CategoryAttributes) {
+  static async updateCategory(id, category) {
     try {
       const result = await Category.update(
         { ...category },
@@ -53,4 +52,4 @@ class CategoryService {
   }
 }
 
-export default CategoryService;
+module.exports = CategoryService;

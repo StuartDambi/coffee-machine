@@ -1,5 +1,4 @@
-import db from "../models";
-import { UserAttributes } from "../utils/interfaces";
+const db = require("../models");
 
 const { User } = db;
 
@@ -21,7 +20,7 @@ class UserService {
    * @param email User Email
    * @returns user
    */
-  static async findUserByEmail(email: string) {
+  static async findUserByEmail(email) {
     try {
       const user = await User.findOne({ where: { email } });
       if (!user) {
@@ -39,7 +38,7 @@ class UserService {
    * @param user @interface UserAttributes
    * @returns user created after signup
    */
-  static async createUser(user: UserAttributes) {
+  static async createUser(user) {
     try {
       const userToBeSaved = await User.findOne({
         where: { email: user.email },
@@ -55,4 +54,4 @@ class UserService {
   }
 }
 
-export default UserService;
+module.exports = UserService;

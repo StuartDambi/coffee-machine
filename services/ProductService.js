@@ -1,5 +1,4 @@
-import db from "../models";
-import { ProductAttributes } from "../models/product";
+const db = require("../models");
 
 const { Product } = db;
 
@@ -13,7 +12,7 @@ class ProductService {
     }
   }
 
-  static async getSingleProduct(id: number) {
+  static async getSingleProduct(id) {
     try {
       const product = await Product.findOne({ id });
       return product;
@@ -22,7 +21,7 @@ class ProductService {
     }
   }
 
-  static async createProduct(product: ProductAttributes) {
+  static async createProduct(product) {
     try {
       const productToCreate = await Product.create(product);
       return productToCreate;
@@ -32,4 +31,4 @@ class ProductService {
   }
 }
 
-export default ProductService;
+module.exports = ProductService;
