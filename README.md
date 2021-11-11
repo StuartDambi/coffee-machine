@@ -3,9 +3,27 @@
 This is an inventory management Platform for a coffee retail Shop.
 It is built with Nodejs, Sequelize and Postgres as a database.
 
-## Getting started
+## Pre-Requisites
 
-Clone the repository and `cd coffee-machine`, install the dependencies
-using the command `yarn` or `npm install`.
-Make sure to have a running Postgress instance on your machine, create
-a new `.env` file and adjust the parameters as shown in the `.env.example` file
+- Postgresql and database created
+
+## How to Install and run the application
+
+- Clone the application and run `yarn`
+- Run `cp .env.example .env` to create .env variables and fill them
+- Run `yarn dev` to create db migrations and run server
+
+## API Documentation
+
+| End Point Name | Method   | Category | EndPoint                    | Description                                 |
+| -------------- | -------- | -------- | --------------------------- | ------------------------------------------- |
+| Register User  | **POST** | Users    | `/api/v1/users/auth/signup` | This registers a users to the system        |
+| Login User     | **POST** | Users    | `/api/v1/users/auth/login`  | This handles login of a users to the system |
+
+## Technologies Used
+
+- NodeJs / Express
+- Postresql Database with Sequelize as ORM
+- Redis
+- Swagger for API Documentation
+- Heroku For Hosting
