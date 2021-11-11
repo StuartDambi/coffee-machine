@@ -20,11 +20,9 @@ app.use("/api/v1/categories", categoryRoutes);
 const PORT = process.env.PORT || 5000;
 const server = http.createServer(app);
 
-db.sequelize
-  .sync()
-  .then(() => {
-    server.listen(PORT, () => {
-      console.log(`App is running on http://localhost:${PORT}`);
-    });
-  })
-  .catch((error) => console.log(error));
+
+server.listen(PORT, () => {
+  console.log(`App is running on http://localhost:${PORT}`);
+});
+
+module.exports = app;
