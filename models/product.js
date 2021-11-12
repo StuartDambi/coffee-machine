@@ -11,23 +11,19 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Product.belongsTo(models.User);
-      Product.belongsTo(models.Category);
+      Product.hasMany(models.OrderItem);
     }
   };
-  Product.init(
-    {
-      name: { type: DataTypes.STRING, allowNull: false },
-      price: { type: DataTypes.INTEGER, allowNull: false },
-      description: { type: DataTypes.STRING, allowNull: false },
-      category: { type: DataTypes.INTEGER, allowNull: false },
-      image: { type: DataTypes.STRING, allowNull: false },
-      stock: { type: DataTypes.INTEGER, allowNull: false },
-    },
-    {
-      sequelize,
-      modelName: "Product",
-    }
-  );
+  Product.init({
+    name: { type: DataTypes.STRING, allowNull: false },
+    price: { type: DataTypes.INTEGER, allowNull: false },
+    description: { type: DataTypes.STRING, allowNull: false },
+    stock: { type: DataTypes.INTEGER, allowNull: false },
+    photo: { type: DataTypes.STRING, allowNull: false },
+    category: { type: DataTypes.STRING, allowNull: false }
+  }, {
+    sequelize,
+    modelName: 'Product',
+  });
   return Product;
 };
