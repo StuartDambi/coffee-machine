@@ -38,20 +38,48 @@ class UserService {
    * @param user @interface UserAttributes
    * @returns user created after signup
    */
-  static async createUser(user) {
+  
+  static async registerUser(user) {
     try {
-      const userToBeSaved = await User.findOne({
-        where: { email: user.email },
-      });
-      if (userToBeSaved) {
-        return "User already exists";
-      }
-      const createdUser = await User.create(user);
-      return createdUser;
+      const newUser = await User.create(user);
+      return newUser;
     } catch (error) {
       throw error;
     }
   }
+
+  static async updateUser(user) {
+    try {
+      const updatedUser = await User.update(user, {
+        where: { id: user.id }
+      });
+      return updatedUser;
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  static async deleteUser(id) {
+    try {
+      const deletedUser = await User.destroy({
+        where: { id }
+      });
+      return deletedUser;
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  static async getCustomers() {
+    try {
+      const customers = await User.findAll({ where: { role: "customer" } });
+      return customers;
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  
 }
 
 module.exports = UserService;
