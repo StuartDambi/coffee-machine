@@ -6,7 +6,6 @@ require("dotenv").config();
 const db = require("./models");
 const userRoutes = require("./routes/UserRoutes");
 const productRoutes = require("./routes/ProductRoutes");
-const categoryRoutes = require("./routes/CategoryRoute");
 
 const app = express();
 
@@ -15,7 +14,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use("/api/v1/users", userRoutes);
 app.use("/api/v1/products", productRoutes);
-app.use("/api/v1/categories", categoryRoutes);
 
 const PORT = process.env.PORT || 5000;
 const server = http.createServer(app);

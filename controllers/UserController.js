@@ -92,7 +92,7 @@ class UserController {
           message: "could not hash password",
         });
       }
-      const userToBeRegistered = await UserService.createUser({
+      const userToBeRegistered = await UserService.registerUser({
         firstName,
         lastName,
         email,
@@ -119,6 +119,31 @@ class UserController {
             message: "oops, could not generate user token",
           });
         }
+      } else {
+        return res.status(500).json({
+          status: res.statusCode,
+          message: "something went wrong",
+        });
+      }
+    } catch (error) {
+      next(error);
+    }
+  }
+
+  static async updateUser(req, res, next) {
+    try {
+      const { firstName, lastName, email, role } = req.body;
+      const userToBeUpdated = await UserService.updateUser({
+        firstName,
+        lastName,
+        email,
+        role,
+      });
+      if (userToBeUpdated) {
+        return res.status(200).json({
+          status: res.statusCode,
+          data: userToBeUpdated,
+        });
       } else {
         return res.status(500).json({
           status: res.statusCode,

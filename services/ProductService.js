@@ -29,6 +29,24 @@ class ProductService {
       throw error;
     }
   }
+
+  static async updateProduct(id, product) {
+    try {
+      const productToUpdate = await Product.update(product, { where: { id } });
+      return productToUpdate;
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  static async deleteProduct(id) {
+    try {
+      const productToDelete = await Product.destroy({ where: { id } });
+      return productToDelete;
+    } catch (error) {
+      throw error;
+    }
+  }
 }
 
 module.exports = ProductService;
